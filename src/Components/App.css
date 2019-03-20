@@ -1,0 +1,246 @@
+@font-face {
+    font-family: pokeFont;
+    src: url(../fonts/poke-font/Pokemon\ GB.ttf);
+}
+html {
+    background-color: rgb(228, 225, 225); 
+    height: 100%;
+}
+* {
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 150vh;
+    border-radius: 8px;
+}
+.container{
+    justify-content: center;
+}
+.app {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Pok%C3%A9ball.png/240px-Pok%C3%A9ball.png');
+    background-size: 60px;
+    background-color: rgb(36, 224, 238);
+    border: 3px solid black;
+    border-radius: 8px;
+    margin: 5px auto 5px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: center;
+    justify-self: flex-end;
+    height: 98vh;    
+    max-width: 1046px;
+    
+}
+.header {
+    max-width: 100%;    
+    height: 20vh;
+    display: flex;
+    flex-direction: row; 
+    justify-items: stretch;
+    justify-content: center;
+    min-height: 143px;
+}
+.poke-logo {
+    max-width: 390px;
+}
+.body {
+    border: 3px solid blue;
+    /* display: block; */
+    flex-direction: column;
+    height: 90%;
+    max-height: 600px;
+    min-width: 50vh;
+    background-color: #f8fafcd2;
+    border-radius: 8px;
+    border: 2px solid black;
+    margin: 0 10px 10px 10px;
+    box-sizing: border-box;
+
+}
+.navbar {    
+    font-family: pokeFont;
+    height: 30px;
+    margin: 3px;
+    background-color: #f8fafc;
+    border-radius: 6px;    
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.form {
+    display:flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+#search-input {
+    font-family: pokeFont;
+    font-size: 17px;
+    min-height: 30px;
+    width: 30vh;
+    margin: 0;
+    padding: 3px 0 0 4px;
+}
+.search-button {
+    background-image: url('https://cdn3.iconfinder.com/data/icons/objects/512/Lupe-512.png');
+    /* background-color: #2193c8; */
+    background-size: 25px;
+    background-position-y: 1px;
+    width: 25px;
+    border-width: 2px;
+    border-style: inset;
+    margin: 0 1px 0 1px;
+}
+.trash-button{
+    background-image: url('../images/trash.png');
+    background-size: 26px;
+    background-position-y: 0px;
+    background-position-x: -2.5px;
+    width: 25px;
+    border-width: 2px;
+    border-style: inset;
+    /* justify-self: flex-end; */
+}
+.poke-dash {
+    border: 3px solid blue;
+    /* margin: 0px 3px 0px 3px; */
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: scroll;
+    height: 100vh;
+    max-height: 71.89vh;
+}
+.poke {
+    width: 200px;
+    margin: 1px;
+    background-color: #dfdbdb;
+    border: 2px solid rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    font-family: pokeFont;   
+    align-items: stretch;     
+}
+.poke:hover {
+    transform: translateY(-3px);
+}
+.poke-title {
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    /* width: 200px; */
+    justify-content: space-between;
+}
+.poke-name {
+    padding: 0;
+    margin: 5px 0 0 3px;
+    font-size: 18px;
+    width: 162px;
+    
+}
+.deleteButton {
+    align-self: self-start;
+    background-color: #dfdbdb;
+    color: rgba(11, 8, 8, 0.938);
+    border: 0.5px solid rgba(1, 5, 1, 0.651);
+    padding: 0 3.9px 2px 4px;
+    margin: 0px;
+    font-size: 8px;
+}
+.deleteButton:hover {
+    background-color: rgba(240, 102, 84, 0.995);
+
+}
+.poke-img {
+    width: 160px;
+    height: 96px;
+    align-self: center;
+    background-color: #f7f9f9b0;
+    border-radius: 80px;
+}
+.poke-number {
+    font-size: 12px;
+    list-style: none;
+}
+
+/* .poke-details {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2px 4px 0px 4px;
+    margin: 0;
+    list-style: none;  
+    justify-content: space-between;  
+}
+.poke-type{
+    font-size: 10px;
+}
+.type {    
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+#type {    
+    border: 1px solid rgba(1, 5, 1, 0.651);
+    padding: 2px 1px 0 1px;
+    margin: 0 2px 1px 0;
+    justify-self: flex-end;
+} 
+.grass {
+    background-color: #9bcc50;
+}
+.poison {
+    background-color: #c47acd;
+}
+.normal {
+    background-color: #a1acae;
+}
+.ground {
+    background-color: #ccac44;
+}
+.fire {
+    background-color: #fd7d24;
+}
+.water {
+    background-color: #2193c8;
+}
+.bug {
+    background-color: #63a129;
+}
+.flying {
+    background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+    background-color: #3dc7ef;
+}
+.electric {
+    background-color: #f2d500;
+}
+.fairy {
+    background-color: #ffb3ec;
+}
+.fighting {
+    background-color: #e46000;
+}
+.psychic {
+    background-color: #ff57bc;
+}
+.steel {
+    background-color: #8fc9c7;
+}
+.ice {
+    background-color: #00c7eb;
+}
+.ghost {
+    background-color: #815fa7;
+}
+.rock {
+    background-color: #745c0e;
+}
+.dragon {
+    background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+    background-color: #53a4cf;
+}
+*/
