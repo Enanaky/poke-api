@@ -11,7 +11,6 @@ html {
     flex-direction: column;
     align-items: flex-start;
     max-height: 150vh;
-    border-radius: 8px;
 }
 .container{
     justify-content: center;
@@ -43,83 +42,173 @@ html {
 }
 .poke-logo {
     max-width: 390px;
+    justify-self: center;
+}
+.poke-logo-a {
+    width: 390px;
+    height: 143px;
+}
+.nav-bar {
+    margin: 0 10px 5px 10px;
+    height: 33px;
+}
+.nav-bar ul {
+    display: flex;
+    flex-direction: row;    
+    height: 100%;
+    list-style: none;
+    font-family: pokeFont;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;    
+    justify-content: center;
+    align-items: stretch;
+}
+.nav-bar ul li {
+    color: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 8px 0 0 1px;
+}
+.home {
+    background-color: #f5e4e1f5;
+    border: 2px solid black;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.home li:hover {
+    background-color: #f5a3a3;
+    color:white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.search {
+    background-color: #f5e4e1f5;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.search li:hover {
+    background-color: #f5a3a3;
+    color: white;
+}
+.poke-details {
+    background-color: #f5e4e1f5;
+    border: 2px solid black;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.poke-details li:hover {
+    background-color: #f5a3a3;
+    color:white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+a {
+    text-decoration: none;
+    width: 33.33333%;    
+    align-content: stretch;
 }
 .body {
-    border: 3px solid blue;
-    /* display: block; */
     flex-direction: column;
-    height: 90%;
+    height: 73%;
     max-height: 600px;
-    min-width: 50vh;
-    background-color: #f8fafcd2;
+    background-color: #f5e4e1e1;
     border-radius: 8px;
     border: 2px solid black;
     margin: 0 10px 10px 10px;
-    box-sizing: border-box;
-
+    overflow: scroll;
 }
-.navbar {    
+.search-bar {    
     font-family: pokeFont;
     height: 30px;
     margin: 3px;
-    background-color: #f8fafc;
+    background-color: #f5a3a3;
+    border: 2px solid black;
     border-radius: 6px;    
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .form {
     display:flex;
     flex-direction: row;
     align-items: stretch;
+    background-color: #f7c0c002;
+    
+
 }
 #search-input {
+    background-color: #f7c0c0b1;
     font-family: pokeFont;
     font-size: 17px;
-    min-height: 30px;
-    width: 30vh;
+    min-height: 26px;
+    width: 195px;
     margin: 0;
     padding: 3px 0 0 4px;
+    border: none;
+    border-right: 2px solid rgb(11, 10, 10);
+    border-radius: 0;
 }
 .search-button {
     background-image: url('https://cdn3.iconfinder.com/data/icons/objects/512/Lupe-512.png');
-    /* background-color: #2193c8; */
     background-size: 25px;
+    background-color: #f7c0c0;
     background-position-y: 1px;
     width: 25px;
     border-width: 2px;
     border-style: inset;
-    margin: 0 1px 0 1px;
+    margin: 0 1px 0 3px;
+    border-radius: 6px;
+
+}
+.search-button:hover {
+    background-color: #f5e4e1e1;
+}
+#trash-button {
+    border-right: 2px solid black;
+    border-radius: 0;
+    margin: 0 0 0 2.3px;
+    padding: 0 3px 0 2.3px;
 }
 .trash-button{
     background-image: url('../images/trash.png');
     background-size: 26px;
     background-position-y: 0px;
     background-position-x: -2.5px;
+    background-color: #f7c0c0;
     width: 25px;
+    height: 26px;
     border-width: 2px;
     border-style: inset;
-    /* justify-self: flex-end; */
+    border-radius: 8px;
+
+}
+.trash-button:hover {
+    background-color: #f5e4e1e1;
+
+}
+.poke-collection {
+    height: 73%;
+
 }
 .poke-dash {
-    border: 3px solid blue;
-    /* margin: 0px 3px 0px 3px; */
-    box-sizing: border-box;
+    /* border: 3px solid blue; */
+    padding: 1px 0px 0px 0px;
+    margin: 0px 0px 0px 3px;
     border-radius: 6px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
-    overflow: scroll;
-    height: 100vh;
-    max-height: 71.89vh;
 }
 .poke {
     width: 200px;
     margin: 1px;
-    background-color: #dfdbdb;
+    background-color: #cfcecee7;
     border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     font-family: pokeFont;   
@@ -147,6 +236,7 @@ html {
     background-color: #dfdbdb;
     color: rgba(11, 8, 8, 0.938);
     border: 0.5px solid rgba(1, 5, 1, 0.651);
+    border-radius: 8px;
     padding: 0 3.9px 2px 4px;
     margin: 0px;
     font-size: 8px;
@@ -159,8 +249,18 @@ html {
     width: 160px;
     height: 96px;
     align-self: center;
-    background-color: #f7f9f9b0;
+    background-color: #cfceced5;
     border-radius: 80px;
+}
+.link-img {
+    margin: 0 0 0 18px;
+    width: 160px;
+    height: 96px;
+    border-radius: 80px;
+}
+.link-img:hover {
+    background-color: rgba(11, 11, 16, 0.87);
+    border: 2px solid black;
 }
 .poke-number {
     font-size: 12px;

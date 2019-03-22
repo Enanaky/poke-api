@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-class Header extends Component {
-  render() {
+function Header() {
     const logo = require('../images/logo.png');
 
     return(
       <div className="header"> 
-        <img className="poke-logo" src={logo} alt="poke-logo"></img>
+        <Link to="/" className="poke-logo-a">
+          <img className="poke-logo" src={logo} alt="poke-logo"></img>
+        </Link>
       </div>
     );
-  }
+  
 }
 export default Header;
