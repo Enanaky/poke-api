@@ -9,7 +9,7 @@ html {
 * {
     box-sizing: border-box;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     max-height: 150vh;
 }
 .container{
@@ -31,6 +31,7 @@ html {
     max-width: 1046px;
     
 }
+/*--- HEADER ---*/
 .header {
     max-width: 100%;    
     height: 20vh;
@@ -48,6 +49,7 @@ html {
     width: 390px;
     height: 143px;
 }
+/*--- NAV BAR ---max-width: 600px---*/
 .nav-bar {
     margin: 0 10px 5px 10px;
     height: 33px;
@@ -58,7 +60,7 @@ html {
     height: 100%;
     list-style: none;
     font-family: pokeFont;
-    font-size: 20px;
+    font-size: 17px;
     margin: 0;
     padding: 0;    
     justify-content: center;
@@ -109,6 +111,17 @@ a {
     width: 33.33333%;    
     align-content: stretch;
 }
+@media only screen and (min-width: 600px) {
+    .nav-bar ul {
+        font-size: 19px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .nav-bar ul {
+        font-size: 20px;   
+    }
+}
+/* BODY */
 .body {
     flex-direction: column;
     height: 73%;
@@ -194,17 +207,17 @@ a {
 
 }
 .poke-dash {
-    /* border: 3px solid blue; */
-    padding: 1px 0px 0px 0px;
-    margin: 0px 0px 0px 3px;
-    border-radius: 6px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
+    padding: 1px 0px 0px 0px;
+    margin: 0px 0px 0px 3px;
+    border-radius: 6px;
 }
+/*---POKEMON CARD---max-width: 600px---*/
 .poke {
-    width: 200px;
+    width: 32.8%;
     margin: 1px;
     background-color: #cfcecee7;
     border: 2px solid rgb(0, 0, 0);
@@ -221,15 +234,13 @@ a {
     padding:0;
     display: flex;
     flex-direction: row;
-    /* width: 200px; */
     justify-content: space-between;
 }
 .poke-name {
     padding: 0;
     margin: 5px 0 0 3px;
-    font-size: 18px;
-    width: 162px;
-    
+    font-size: 13px;
+    width: 90%;    
 }
 .deleteButton {
     align-self: self-start;
@@ -245,21 +256,29 @@ a {
     background-color: rgba(240, 102, 84, 0.995);
 
 }
+.img-container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+}
 .poke-img {
-    width: 160px;
+    width: 100%;
     height: 96px;
-    align-self: center;
     background-color: #cfceced5;
     border-radius: 80px;
 }
 .link-img {
-    margin: 0 0 0 18px;
-    width: 160px;
+    align-self: center;
+    align-items: center;
+    display: flex;
+    margin: 0px;
+    width: 80%;
     height: 96px;
     border-radius: 80px;
 }
 .link-img:hover {
-    background-color: rgba(11, 11, 16, 0.87);
+    background-color: #f5a3a3;
     border: 2px solid black;
 }
 .poke-number {
@@ -267,36 +286,152 @@ a {
     list-style: none;
 }
 
-/* .poke-details {
+@media only screen and (min-width: 600px) {
+    .poke{
+        width: 24.6%;
+    }
+    .poke-name {
+        font-size: 12.5px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .poke {
+        width: 200px;     
+    }
+    .poke-name {
+        font-size: 16px;
+    }
+} 
+/*--- POKEMON DETAILS --- max-width: 600px ---*/
+.full-details {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(243, 211, 211, 0.667);
+    font-family: pokeFont;
+    align-items: stretch;
+    align-content: stretch;
+}
+.detail-name {
+    flex: 0 1 auto;
+    margin-top: 15px;
+    font-size: 23px;
+    align-self: center;
+    text-decoration: underline;
+}
+.img-data {
+    flex: 3 1 auto;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    padding: 2px 4px 0px 4px;
-    margin: 0;
-    list-style: none;  
-    justify-content: space-between;  
+    align-items: center;
+    margin-top: 17px;
 }
-.poke-type{
-    font-size: 10px;
+.detail-img {
+    /* flex: 1 1 auto; */
+    border-radius: 30px;
+    min-width: 168px;
 }
-.type {    
+.detail-data {
+    flex: 1 1 auto;
+    list-style: none;
+    padding: 0;
+    margin: 0 10px 0 0;
+    border: 1.5px solid black;
+    border-radius: 8px;
+    background-color: rgba(219, 207, 207, 0.858);
+}
+.detail-data li {
+    margin: 2px 0 2px 0;
+    padding: 3px 2px 0 4px;
+    border-bottom: 1px solid black;
+    font-size: 13px;
+}
+.detail-data li:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+.detail-data li span {
+    float: right;
+    font-size: 12px;
+}
+.description {
+    background-color: rgba(219, 207, 207, 0.858);
+    border: 1.5px solid black;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 7px 7px 3px 7px;
+    font-size: 15px;
+    text-align: justify;    
+}
+/*--- Egg Groups & types ---*/
+.type-eggGroups {
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+    margin: 12px 0 12px 0;
 }
-#type {    
+.div-eggs {
+    display: flex;
+    background-color: rgba(219, 207, 207, 0.858);
+    border: 1.5px solid black;
+    border-radius: 8px;
+}
+.div-eggs p {
+    align-self: center;
+    margin: 10px 5px 10px 5px;
+    font-size: 15px;    
+}
+.ul-eggs {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+.ul-eggs li {
     border: 1px solid rgba(1, 5, 1, 0.651);
-    padding: 2px 1px 0 1px;
-    margin: 0 2px 1px 0;
-    justify-self: flex-end;
-} 
-.grass {
+    padding: 2px 2px 0 4px;
+    margin: 0 3px 2px 3px;
+    border-radius: 8px;
+    
+}
+.div-types {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(219, 207, 207, 0.858);
+    border: 1.5px solid black;
+    border-radius: 8px;
+}
+.div-types p {
+    align-self: center;
+    margin: 10px 15px 10px 15px;
+    font-size: 15px;
+}
+.ul-types {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+
+}
+.ul-types li {
+    border: 1px solid rgba(1, 5, 1, 0.651);
+    padding: 2px 2px 0 4px;
+    margin: 0 3px 2px 3px;
+    border-radius: 8px;
+}
+/*--- type & eggs clases! ---*/ 
+.grass, .plant {
     background-color: #9bcc50;
 }
 .poison {
     background-color: #c47acd;
 }
-.normal {
+.normal, .indeterminate {
     background-color: #a1acae;
 }
 .ground {
@@ -305,7 +440,7 @@ a {
 .fire {
     background-color: #fd7d24;
 }
-.water {
+.water, .water1, .water2, .water3 {
     background-color: #2193c8;
 }
 .bug {
@@ -318,7 +453,7 @@ a {
 .electric {
     background-color: #f2d500;
 }
-.fairy {
+.fairy, .humanshape {
     background-color: #ffb3ec;
 }
 .fighting {
@@ -339,8 +474,70 @@ a {
 .rock {
     background-color: #745c0e;
 }
+.monster {
+    background-color: rgb(67, 65, 65);
+    color: rgb(201, 198, 198);
+}
 .dragon {
     background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
     background-color: #53a4cf;
 }
-*/
+.no-eggs {
+    background-color: #f8faf6;
+}
+.mineral {
+    background-color: #a2f7dcd7;
+}
+.ditto {
+    background-color: #da2de0;
+}
+/*--- STATS ---*/
+.div-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1.5px solid black;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 0;
+    font-size: 15px;
+}
+.ul-a {
+    flex: 1 0 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ul-a li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 5px 2px 0 5px;
+}
+.ul-a li:last-child {
+    border: none;
+}
+.ul-a li span {
+    font-size: 14px;
+}
+.ul-d {
+    flex: 1 0 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1.5px solid black;
+}
+.ul-d li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 5px 2px 0 5px;
+}
+.ul-d li:last-child {
+    border: none;
+}
+.ul-d li span {
+    font-size: 14px;
+}

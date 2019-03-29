@@ -5,23 +5,31 @@ import { Link } from 'react-router-dom';
 class PokeCard extends Component {
   render() {
     const pokemon = this.props.pokemon;
-    const { name, id, sprites: { front_shiny: image } } = pokemon;
-        
+    const { name, id, images: { shiny: image } } = pokemon;
+
     function upperCase(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }  
-    // onClick={() => this.props.handleClickCard(id)}
+
     return (
       <div className="poke" >
         <div className="poke-title">
           <span className="poke-name">{upperCase(name)}</span>
-          <button className="deleteButton" onClick={() => this.props.deletePokemon(id)}>
+          <button className="deleteButton" onClick={() => this.props.hidePokemon(id)}>
             x
           </button>
         </div>
-        <Link className="link-img" to="/PokeDetails" key={id}>
-          <img className="poke-img" src={image} alt="poke-img"></img>
-        </Link>
+        <div className="img-container">
+          <Link className="link-img" to="/PokeDetails" key={id}>
+            <img 
+              className="poke-img" 
+              src={image} 
+              alt="poke-img"
+              onClick={() => this.props.handleClickCard(id)}
+            >
+            </img>
+          </Link>
+        </div>
         <li className="poke-number">n.{id}</li>
       </div>                
     );

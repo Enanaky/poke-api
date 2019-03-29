@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PokeDesk from './PokeDesk';
+import PokeDeck from './PokeDeck';
 
 class Search extends Component {
     //Create a Ref to the search input.
@@ -10,7 +10,7 @@ class Search extends Component {
     e.preventDefault();
     //Save the input in a const.
     const search = this.pokeRef.current.value;
-    this.props.fetchPokemon(search);
+    this.props.checkIfAlreadyHaveIt(search);
     //Reset the search
     e.currentTarget.reset();
   };
@@ -41,13 +41,14 @@ class Search extends Component {
               type="submit"
               value=""
               className="trash-button"
-              onClick={this.props.deletePokeDesk}
+              onClick={this.props.hideDeck}
             />
           </span>
           </div>   
-            <PokeDesk 
-              desk={this.props.desk}
-              deletePokemon={this.props.deletePokemon}
+            <PokeDeck 
+              collection={this.props.collection}
+              hidePokemon={this.props.hidePokemon}
+              handleClickCard={this.props.handleClickCard}
           />
       </div>
     );
