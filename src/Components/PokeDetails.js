@@ -47,32 +47,13 @@ class PokeDetails extends Component {
 		}				
 		return ;
 	}
-	// showEvoImages(images){
-	// 	console.log(images);
-		
-	// 	if(images.length > 1){
-	// 		const evoImg = images.map(item => {
-	// 			if(item == 'string') {
-	// 				return <img src={item} key={item}></img>;					
-	// 			}else{
-	// 				console.log(item);
-					
-	// 				// const many = item.map(e => {
-	// 				// 	return <img src={e} key={e}></img>;
-	// 				// });
-	// 				// return many;
-	// 			}
-	// 		});
-	// 		return <ul className="evo-images">{evoImg}</ul>;
-	// 	}
-	// }
-	// "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png"
+
 	render() {
 		const { pokeFullDetails } = this.props;
 		// console.log('pokemon: ', pokeFullDetails);
 		
 		if(pokeFullDetails){
-			const { name, id, color, weight, height, generation, genera, habitat, images: { default: image }, description, egg_groups, types, stats, evoImgs } = pokeFullDetails;
+			const { name, id, color, weight, height, generation, genera, habitat, images: { default: image }, description, egg_groups, types, stats } = pokeFullDetails;
 			return(
 				<div className="full-details">
 					<div className="detail-name">{this.upperCase(name)}</div>
@@ -101,9 +82,6 @@ class PokeDetails extends Component {
 					</section>
 					<section className="section-stats">
 							{this.getStats(stats)}
-					</section>
-					<section className="evolution-chain">
-						{/* {this.showEvoImages(evoImgs)} */}
 					</section>
 				</div>
 			);

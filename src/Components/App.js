@@ -24,7 +24,6 @@ class App extends Component {
     };
     //I allow searchIt to access "App component" 
     this.searchIt = this.searchIt.bind(this);
-    this.getImgEvolutionChain = this.getImgEvolutionChain.bind(this);
   }
   // This is where the app checks if already have the pokemon.
   checkIfAlreadyHaveIt = (pokeSearchCriteria) => {    
@@ -36,7 +35,7 @@ class App extends Component {
       let poke = null;
       const copyCollection = Object.values(this.state.collection);
       copyCollection.forEach(item => {                
-        if(item.id == pokeSearchCriteria || item.name === pokeSearchCriteria){
+        if(item.id === parseInt(pokeSearchCriteria) || item.name === pokeSearchCriteria){
           gotIt = true;
           poke = item;
         }
@@ -50,7 +49,7 @@ class App extends Component {
       }        
     }  
   }
-  // This method Fetch the data, make the poke-Model.
+  // This method Fetch the data, make the poke-Model and persist data in state.
   async searchIt(searchData) {
     this.setState({
       error: false, 
@@ -58,16 +57,14 @@ class App extends Component {
     try {
       // 1. Fetch basic pokemon data
       const basicData = await pokeApi.getPokemon(searchData);
-      // 2. Fetch Species Data with pokemon Name
+      // 2. Fetch Species Data with pokemon Name      
       const specieData = await pokeApi.getSpeciesData(searchData);
       // 3. Extract Evolution Chain
       const evolutionUrl = specieData.evolution_chain.url;
       // 4. Fetch Evolution Chain
       const evolutionData = await pokeApi.getResource(evolutionUrl);
       // 5. Compose Pokemon model
-      const pokemon = this.makePokemonCard(basicData, specieData, evolutionData);  
-      console.log(pokemon);
-            
+      const pokemon = this.makePokemonCard(basicData, specieData, evolutionData);           
       // 6. Persist in State
       this.savePokemon(pokemon);
       // 7. Catchin posibles errors
@@ -80,7 +77,6 @@ class App extends Component {
       } 
     }       
   } 
-
   //POKEMON MODEL//p: basic / s: specie / e: evol
   makePokemonCard = (p, s, e) => { 
     // console.log('p: ', p);
@@ -140,22 +136,7 @@ class App extends Component {
       }
     }
     return chain;     
-  }
-  async getImgEvolutionChain(item) {
-    // console.log(pokemon, item);    
-    try {      
-      const data = await pokeApi.getPokemon(item);      
-      const order = data.id; 
-      return order;    
-    } catch(err) {
-      console.log(err); 
-      if(err) {
-        this.setState({
-          error: true, 
-        });
-      } 
-    }    
-  }
+  }  
   // here is where the pokemon Object is storaged in State.
   savePokemon = (poke) => {  
     const collectionUpdated = { ...this.state.collection, [poke.id]: poke }
@@ -185,7 +166,7 @@ class App extends Component {
       pokeFullDetails: pokeRef,
     })        
   }
-
+  
   render() {
     return(
       <div className="container">
