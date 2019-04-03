@@ -10,7 +10,7 @@ class Search extends Component {
     e.preventDefault();
     //Save the input in a const.
     const search = this.pokeRef.current.value;
-    this.props.checkIfAlreadyHaveIt(search);
+    this.props.checkIfIHaveIt(search);
     //Reset the search
     e.currentTarget.reset();
   };

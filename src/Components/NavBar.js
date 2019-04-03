@@ -1,18 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function clickEvent(e) {
-	console.log(e);
-	
+function handleClickEvent(e) {
+	const home = document.querySelector('.home');
+	const search = document.querySelector('.search');
+	const details = document.querySelector('.poke-details');
+	const navBar = [home, search, details];
+
+	navBar.forEach(item => {
+		if(item === e.currentTarget){
+			item.classList.add('active');
+		}else{
+			item.classList.remove('active');
+		}
+	});
 }
 
 function NavBar() {
 	return(
 		<nav className="nav-bar">
 			<ul>				
-					<Link className="home" to="/"><li>Home</li></Link>				
-					<Link className="search" to="/Search"><li>Search</li></Link>				
-					<Link className="poke-details" onClick={(e) => clickEvent(e)} to="/PokeDetails"><li>Details</li></Link>				
+					<Link className="home" onClick={(e) => handleClickEvent(e)} to="/"><li>Home</li></Link>				
+					<Link className="search" onClick={(e) => handleClickEvent(e)} to="/Search"><li>Search</li></Link>				
+					<Link className="poke-details" onClick={(e) => handleClickEvent(e)} to="/PokeDetails"><li>Details</li></Link>				
 			</ul>
 		</nav>
 	);

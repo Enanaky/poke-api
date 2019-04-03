@@ -17,19 +17,31 @@ class App extends Component {
     super();
     this.state = {
       collection: null,
+      didYouKnow: null,
       total: 0,
-      pokeFullDetails: null,
-      search: null,
+      pokeFullDetails: null,      
       error: false,
     };
-    //I allow searchIt to access "App component" 
+    //I allow functions to access "App component" 
     this.searchIt = this.searchIt.bind(this);
+    this.pokeRandom = this.pokeRandom.bind(this);
+  }
+  
+  pokeRandom = () => {
+    this.setState({
+      didYouKnow: null,
+      total: 0,
+    })
+    for(let i=0; i<8; i++){
+      const poke = Math.floor(Math.random() * 151) + 1;
+      this.handleSearch(poke);
+    }
   }
   // This is where the app checks if already have the pokemon.
-  checkIfAlreadyHaveIt = (pokeSearchCriteria) => {    
+  checkIfIHaveIt = (pokeSearchCriteria) => {    
     const total = this.state.total;
-    if(total === 0){
-      this.searchIt(pokeSearchCriteria);
+    if(total === 8){
+      this.handleSearch(pokeSearchCriteria);
     }else{
       let gotIt = false;
       let poke = null;
@@ -45,16 +57,23 @@ class App extends Component {
         copy[poke.id].visible = true;          
         this.setState({ collection: copy})          
       }else{
-        this.searchIt(pokeSearchCriteria);
+        this.handleSearch(pokeSearchCriteria);
       }        
     }  
-  }
+  } 
+  async handleSearch(pokeSearchCriteria) {
+    try{
+      const poke = await this.searchIt(pokeSearchCriteria);
+      //  Persist poke in State
+      this.savePokemon(poke);
+    }catch(err){}    
+  }  
   // This method Fetch the data, make the poke-Model and persist data in state.
   async searchIt(searchData) {
     this.setState({
       error: false, 
     });
-    try {
+    try {      
       // 1. Fetch basic pokemon data
       const basicData = await pokeApi.getPokemon(searchData);
       // 2. Fetch Species Data with pokemon Name      
@@ -65,9 +84,8 @@ class App extends Component {
       const evolutionData = await pokeApi.getResource(evolutionUrl);
       // 5. Compose Pokemon model
       const pokemon = this.makePokemonCard(basicData, specieData, evolutionData);           
-      // 6. Persist in State
-      this.savePokemon(pokemon);
-      // 7. Catchin posibles errors
+      return pokemon;
+      // 6. Catchin posibles errors
     } catch(err) {
       console.log(err); 
       if(err) {
@@ -138,14 +156,23 @@ class App extends Component {
     return chain;     
   }  
   // here is where the pokemon Object is storaged in State.
-  savePokemon = (poke) => {  
-    const collectionUpdated = { ...this.state.collection, [poke.id]: poke }
+  savePokemon = (poke) => {
     let plusOne = this.state.total; 
-    plusOne++;
-    this.setState({
-      collection: collectionUpdated,
-      total: plusOne,
-    });
+    if(plusOne < 8){
+      const didYouKnowUpdated = { ...this.state.didYouKnow, [poke.id]: poke }
+      plusOne++;
+      this.setState({
+        didYouKnow: didYouKnowUpdated,
+        total: plusOne,
+      });      
+    }else{
+      const collectionUpdated = { ...this.state.collection, [poke.id]: poke }
+      plusOne++;
+      this.setState({
+        collection: collectionUpdated,
+        total: plusOne,
+      });
+    }  
   }  
   hideDeck = () => {
     const copyCollection = Object.values(this.state.collection);
@@ -161,10 +188,17 @@ class App extends Component {
     this.setState({ collection: collectionCopy });    
   }
   handleClickCard = (id) => {
+    document.querySelector('.poke-details').classList.add('active');
+    document.querySelector('.home').classList.remove('active');
+    document.querySelector('.search').classList.remove('active');
     const pokeRef = {...this.state.collection[id]}
     this.setState({
       pokeFullDetails: pokeRef,
     })        
+  }
+  componentDidMount(){
+    this.pokeRandom();
+    setInterval(this.pokeRandom, 30000);
   }
   
   render() {
@@ -175,12 +209,18 @@ class App extends Component {
           <NavBar />
           <div className="body">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route 
+                exact path="/" 
+                render={props => <Home {...props}
+                  didYouKnow={this.state.didYouKnow}
+                  vevo={this.state.vevo}
+                />}
+              />
               <Route 
                 path="/Search" 
                 render={props => <Search {...props}
                   collection={this.state.collection} 
-                  checkIfAlreadyHaveIt={this.checkIfAlreadyHaveIt}
+                  checkIfIHaveIt={this.checkIfIHaveIt}
                   hidePokemon={this.hidePokemon}
                   hideDeck={this.hideDeck}
                   handleClickCard={this.handleClickCard}

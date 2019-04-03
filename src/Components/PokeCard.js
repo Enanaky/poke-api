@@ -15,7 +15,8 @@ class PokeCard extends Component {
       <div className="poke" >
         <div className="poke-title">
           <span className="poke-name">{upperCase(name)}</span>
-          <button className="deleteButton" onClick={() => this.props.hidePokemon(id)}>
+          <li className="poke-numberMax600">n.{id}</li>
+          <button className="deleteButtonMin600" onClick={() => this.props.hidePokemon(id)}>
             x
           </button>
         </div>
@@ -30,15 +31,12 @@ class PokeCard extends Component {
             </img>
           </Link>
         </div>
-        <li className="poke-number">n.{id}</li>
+        <button className="deleteButtonMax600" onClick={() => this.props.hidePokemon(id)}>
+            x
+          </button>
+        <li className="poke-numberMin600">n.{id}</li>
       </div>                
     );
   }
 }
 export default PokeCard;
-
-//  <li className="poke-type">
-//   {types.map((item) => (
-//     <span id="type" key={item.type.name} className={item.type.name}>{item.type.name}  </span>
-//   ))}
-// </li>

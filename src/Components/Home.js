@@ -1,9 +1,41 @@
 import React from 'react';
+import DidYouKnowCard from './didYouKnowCard';
 
-export default function Home() {
-    return(
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit, ligula ac eleifend dictum, est libero faucibus metus, id tempor libero justo non sapien. Nam magna quam, vestibulum a blandit nec, tempus id sem. Proin et egestas lacus. Phasellus semper dictum lorem. Nullam non mattis arcu, non gravida urna. Nunc sed lorem tellus. Sed tortor est, tempor in pharetra at, convallis mollis libero. Nullam vestibulum sodales sem id condimentum. Donec mattis, turpis a ultrices convallis, dolor lacus tristique odio, eget rhoncus augue elit vitae elit. Duis at porta mauris. Pellentesque vehicula mollis tristique. Quisque id dolor malesuada, bibendum leo et, scelerisque eros. Duis tincidunt metus nec posuere vestibulum. Duis lobortis tellus in placerat iaculis.
-        </p>
-    );
+class Home extends React.Component {
+	
+	didYouKnowMaker = function(firstInfo) {
+		const data = [];
+		firstInfo.forEach(item => {
+			data.push(
+				<DidYouKnowCard 
+					poke={item}
+					key={item.id}
+				/>
+			);
+		});
+		return data;
+	}
+	render() {
+		const pikachu420 = require('../images/pikachu420.jpg');
+		const didYouKnow = this.props.didYouKnow;
+		if(didYouKnow){
+			const firstInfo = Object.values(didYouKnow);
+				return (
+					<div id="home">
+						<h1 className="welcome">
+							welcome
+						</h1>
+						<div className="first-info">
+							{
+								this.didYouKnowMaker(firstInfo)
+							}
+						</div>
+						{/* <img className="pikachu420" src={pikachu420} alt="fondaso"></img> */}
+					</div>
+				);
+		}else{
+			return '';
+		}
+	}
 }
+export default Home;
