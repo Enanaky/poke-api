@@ -9,6 +9,10 @@ node_modules/
 /coverage
 
 # production
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7773a1a540b5b25b0b10b9d3388a272c6c505d1e
 
 # misc
 .DS_Store
