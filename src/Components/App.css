@@ -239,14 +239,18 @@ a {
     margin: 4px;
     background-color: rgba(255, 253, 253, 0.767);
     border-radius: 9px;
-    
+    justify-content: center;
+    width: 505px;
+    align-self: center;    
 }
 .thanks p {
     font-family: pokeFont;
     font-size: 9px;
+    text-align: justify;
     padding: 0px 4px 0 4px;
     margin: 2px 0 2px 0;
-    /* width: 90%; */
+    width: 450px;
+
     align-self: center;
 }
 .thanks a {
