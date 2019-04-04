@@ -32,7 +32,7 @@ class PokeCard extends Component {
           </Link>
         </div>
         <button className="deleteButtonMax600" onClick={() => this.props.hidePokemon(id)}>
-            x
+            <span>x</span>
           </button>
         <li className="poke-numberMin600">n.{id}</li>
       </div>                
