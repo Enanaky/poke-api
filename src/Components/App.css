@@ -233,6 +233,34 @@ a {
     border: 1px solid black;
     margin: 4px;
 }
+.thanks {
+    display: flex;
+    flex-direction: row;
+    margin: 4px;
+    background-color: rgba(255, 253, 253, 0.767);
+    border-radius: 9px;
+    
+}
+.thanks p {
+    font-family: pokeFont;
+    font-size: 9px;
+    padding: 0px 4px 0 4px;
+    margin: 2px 0 2px 0;
+    /* width: 90%; */
+    align-self: center;
+}
+.thanks a {
+    padding: 3px 0 0 0;
+    width: 50px;
+    margin: 0 2px 0 0;
+}
+#github-logo {
+    width: 50px;
+    background-color: rgb(235, 112, 112);
+    border-radius: 90px;
+    align-self: center;
+
+}
 @media only screen and (min-width: 768px) {
     .welcome{
         font-size: 40px;
