@@ -20,7 +20,7 @@ function NavBar() {
 	return (
 		<nav className="nav-bar">
 			<ul>
-				<Link className="home" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/PokeDetails'}><li>Home</li></Link>
+				<Link className="home" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/'}><li>Home</li></Link>
 				<Link className="search" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/Search'}><li>Search</li></Link>
 				<Link className="poke-details" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/PokeDetails'}><li>Details</li></Link>
 			</ul>
