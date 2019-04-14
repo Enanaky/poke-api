@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/poke-api/static/css/main.63ce7c9e.chunk.css"
   },
   {
-    "revision": "01b8231b20bb0a8705eb84616f4fb5ee",
+    "revision": "360b6658785b4701fe49315298fe187d",
     "url": "/poke-api/index.html"
   }
 ];
