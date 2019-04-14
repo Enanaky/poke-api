@@ -8,23 +8,23 @@ function handleClickEvent(e) {
 	const navBar = [home, search, details];
 
 	navBar.forEach(item => {
-		if(item === e.currentTarget){
+		if (item === e.currentTarget) {
 			item.classList.add('active');
-		}else{
+		} else {
 			item.classList.remove('active');
 		}
 	});
 }
 
 function NavBar() {
-	return(
+	return (
 		<nav className="nav-bar">
-			<ul>				
-					<Link className="home" onClick={(e) => handleClickEvent(e)} to="/"><li>Home</li></Link>				
-					<Link className="search" onClick={(e) => handleClickEvent(e)} to="/Search"><li>Search</li></Link>				
-					<Link className="poke-details" onClick={(e) => handleClickEvent(e)} to="/PokeDetails"><li>Details</li></Link>				
+			<ul>
+				<Link className="home" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/PokeDetails'}><li>Home</li></Link>
+				<Link className="search" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/Search'}><li>Search</li></Link>
+				<Link className="poke-details" onClick={(e) => handleClickEvent(e)} to={process.env.PUBLIC_URL + '/PokeDetails'}><li>Details</li></Link>
 			</ul>
 		</nav>
 	);
 }
- export default NavBar;
+export default NavBar;
