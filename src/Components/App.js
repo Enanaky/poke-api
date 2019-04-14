@@ -217,7 +217,7 @@ class App extends Component {
                 />}
               />
               <Route
-                path="/Search"
+                path={process.env.PUBLIC_URL + '/Search'}
                 render={props => <Search {...props}
                   collection={this.state.collection}
                   checkIfIHaveIt={this.checkIfIHaveIt}
@@ -227,7 +227,7 @@ class App extends Component {
                 />}
               />
               <Route
-                exact path="/PokeDetails"
+                path={process.env.PUBLIC_URL + "/PokeDetails"}
                 render={props => <PokeDetails {...props}
                   pokeFullDetails={this.state.pokeFullDetails}
                   getImgEvolutionChain={this.getImgEvolutionChain}
