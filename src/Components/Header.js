@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <div className="header">
-      <Link to={process.env.PUBLIC_URL + '/'} onClick={(e) => handleClickEvent(e)} className="poke-logo-a">
+      <Link to="/" onClick={(e) => handleClickEvent(e)} className="poke-logo-a">
         <img className="poke-logo" src={logo} alt="poke-logo"></img>
       </Link>
     </div>

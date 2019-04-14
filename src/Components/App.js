@@ -210,14 +210,14 @@ class App extends Component {
           <div className="body">
             <Switch>
               <Route
-                exact path={process.env.PUBLIC_URL + '/'}
+                exact path="/"
                 render={props => <Home {...props}
                   didYouKnow={this.state.didYouKnow}
                   vevo={this.state.vevo}
                 />}
               />
               <Route
-                path={process.env.PUBLIC_URL + '/Search'}
+                path="/Search"
                 render={props => <Search {...props}
                   collection={this.state.collection}
                   checkIfIHaveIt={this.checkIfIHaveIt}
@@ -227,7 +227,7 @@ class App extends Component {
                 />}
               />
               <Route
-                exact path={process.env.PUBLIC_URL + '/PokeDetails'}
+                exact path="/PokeDetails"
                 render={props => <PokeDetails {...props}
                   pokeFullDetails={this.state.pokeFullDetails}
                   getImgEvolutionChain={this.getImgEvolutionChain}
