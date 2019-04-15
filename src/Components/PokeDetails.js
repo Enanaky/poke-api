@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 
 class PokeDetails extends Component {
-	
+
 	upperCase(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
-	}	
+	}
 	checkHabitat(habitat) {
-		if(habitat){
+		if (habitat) {
 			return <li id="li-habitat">Hábitat: <span>{this.upperCase(habitat.name)}</span></li>;
 		}
 	}
 	checkEggs(egg_groups) {
-		if(egg_groups){
+		if (egg_groups) {
 			const eggs = egg_groups.map(item => {
-				return <li className={item} key={item}>{item}</li>;					
+				return <li className={item} key={item}>{item}</li>;
 			});
 			return <ul className="ul-eggs">{eggs}</ul>;
-		}			
+		}
 	}
 	getType(types) {
-		if(types){
+		if (types) {
 			const type = types.map(item => {
-				return <li className={item} key={item}>{item}</li>;					
+				return <li className={item} key={item}>{item}</li>;
 			});
 			return <ul className="ul-types">{type}</ul>;
 		}
 	}
 	getStats(stats) {
 		const allStats = Object.values(stats);
-		if(allStats){
+		if (allStats) {
 			stats = (
 				<div className="div-stats">
 					<ul className="ul-a">
@@ -44,17 +44,17 @@ class PokeDetails extends Component {
 				</div>
 			);
 			return stats;
-		}				
-		return ;
+		}
+		return;
 	}
 
 	render() {
 		const { pokeFullDetails } = this.props;
 		// console.log('pokemon: ', pokeFullDetails);
-		
-		if(pokeFullDetails){
+
+		if (pokeFullDetails) {
 			const { name, id, color, weight, height, generation, genera, habitat, images: { default: image }, description, egg_groups, types, stats } = pokeFullDetails;
-			return(
+			return (
 				<div className="full-details">
 					<div className="detail-name">{this.upperCase(name)}</div>
 					<section className="img-data">
@@ -66,7 +66,7 @@ class PokeDetails extends Component {
 							<li id="li-weight"> Weight: <span>{weight}</span></li>
 							<li id="li-genera"> Genera: <span>{genera}</span></li>
 							{this.checkHabitat(habitat)}
-							<li id="li-generation">Generation: <span>{this.upperCase(generation)}</span></li>		
+							<li id="li-generation">Gen: <span>{this.upperCase(generation)}</span></li>
 						</ul>
 					</section>
 					<p className="description">{description}</p>
@@ -76,18 +76,18 @@ class PokeDetails extends Component {
 							{this.checkEggs(egg_groups)}
 						</div>
 						<div className="div-types">
-						<p>Type</p>
+							<p>Type</p>
 							{this.getType(types)}
 						</div>
 					</section>
 					<section className="section-stats">
-							{this.getStats(stats)}
+						{this.getStats(stats)}
 					</section>
 				</div>
 			);
-		}else{
+		} else {
 			return '';
-		}		
+		}
 	}
 }
 export default PokeDetails;
