@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/poke-api/static/js/runtime~main.27597d65.js"
   },
   {
-    "revision": "63aba4fed92cbf99dcfe",
-    "url": "/poke-api/static/js/main.3d1e7c4b.chunk.js"
+    "revision": "982250e906bd33cc0e5d",
+    "url": "/poke-api/static/js/main.76caf339.chunk.js"
   },
   {
     "revision": "36352d252c1ba4c8de08",
     "url": "/poke-api/static/js/2.d5341cd3.chunk.js"
   },
   {
-    "revision": "63aba4fed92cbf99dcfe",
+    "revision": "982250e906bd33cc0e5d",
     "url": "/poke-api/static/css/main.63ce7c9e.chunk.css"
   },
   {
-    "revision": "d4ce992807eaa0ed438670c1bac4dfd0",
+    "revision": "1015b5bbd8057e1b8193f1546318f80c",
     "url": "/poke-api/index.html"
   }
 ];
