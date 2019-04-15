@@ -210,7 +210,7 @@ class App extends Component {
           <div className="body">
             <Switch>
               <Route
-                exact path="/"
+                exact path={process.env.PUBLIC_URL + '/'}
                 render={props => <Home {...props}
                   didYouKnow={this.state.didYouKnow}
                   vevo={this.state.vevo}
