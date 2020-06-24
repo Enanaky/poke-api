@@ -1,6 +1,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2000px-International_Pok%C3%A9mon_logo.svg.png" width="850" height="200" />
 
-# https://enanaky.github.io/poke-api/
+# https://ignaciopetrone.github.io/poke-api/
 
 ## Poke Chamuyin is a React SPA which consume the https://pokeapi.co/ data by promises.
 
